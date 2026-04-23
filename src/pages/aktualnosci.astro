@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+const base = import.meta.env.BASE_URL;
 import { getCollection } from 'astro:content';
 
 const allAktualnosci = (await getCollection('aktualnosci'))
@@ -27,7 +28,7 @@ const regularNews = allAktualnosci.filter(n => !n.data.featured);
       </div>
       <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
         <div class="flex items-center space-x-2 text-accent-400 text-sm mb-4">
-          <a href="/" class="hover:text-accent-300">Strona główna</a>
+          <a href={base} class="hover:text-accent-300">Strona główna</a>
           <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
           <span class="text-primary-300">Aktualności</span>
         </div>

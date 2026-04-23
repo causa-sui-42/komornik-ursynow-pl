@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+const base = import.meta.env.BASE_URL;
 import { getCollection } from 'astro:content';
 
 const formularze = (await getCollection('formularze'))
@@ -26,7 +27,7 @@ const categories = [...new Set(formularze.map(f => f.data.category))];
       </div>
       <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
         <div class="flex items-center space-x-2 text-accent-400 text-sm mb-4">
-          <a href="/" class="hover:text-accent-300">Strona główna</a>
+          <a href={base} class="hover:text-accent-300">Strona główna</a>
           <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
           <span class="text-primary-300">Formularze</span>
         </div>
@@ -122,10 +123,10 @@ const categories = [...new Set(formularze.map(f => f.data.category))];
           postępowania egzekucyjnego, skontaktuj się z naszą kancelarią.
         </p>
         <div class="flex flex-col sm:flex-row gap-4">
-          <a href="/kontakt" class="inline-block bg-primary-600 text-white py-3 px-6 rounded-lg font-semibold hover:bg-primary-700 transition text-center">
+          <a href={`${base}kontakt`} class="inline-block bg-primary-600 text-white py-3 px-6 rounded-lg font-semibold hover:bg-primary-700 transition text-center">
             Skontaktuj się z nami
           </a>
-          <a href="/o-kancelarii" class="inline-block bg-gray-200 text-gray-700 py-3 px-6 rounded-lg font-semibold hover:bg-gray-300 transition text-center">
+          <a href={`${base}o-kancelarii`} class="inline-block bg-gray-200 text-gray-700 py-3 px-6 rounded-lg font-semibold hover:bg-gray-300 transition text-center">
             Więcej o kancelarii
           </a>
         </div>

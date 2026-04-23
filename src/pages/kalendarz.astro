@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+const base = import.meta.env.BASE_URL;
 import { getCollection } from 'astro:content';
 
 const wydarzenia = await getCollection('wydarzenia');
@@ -39,7 +40,7 @@ const calendarEvents = wydarzenia.map(event => ({
       </div>
       <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
         <div class="flex items-center space-x-2 text-accent-400 text-sm mb-4">
-          <a href="/" class="hover:text-accent-300">Strona główna</a>
+          <a href={base} class="hover:text-accent-300">Strona główna</a>
           <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
           <span class="text-primary-300">Kalendarz</span>
         </div>
@@ -78,13 +79,13 @@ const calendarEvents = wydarzenia.map(event => ({
             <div class="mt-6 pt-6 border-t border-gray-200">
               <h3 class="font-semibold mb-3 text-gray-900">Szybkie linki</h3>
               <div class="space-y-2">
-                <a href="/licytacje" class="block text-sm text-primary-600 hover:text-primary-700">
+                <a href={`${base}licytacje`} class="block text-sm text-primary-600 hover:text-primary-700">
                   → Wszystkie licytacje
                 </a>
-                <a href="/aktualnosci" class="block text-sm text-primary-600 hover:text-primary-700">
+                <a href={`${base}aktualnosci`} class="block text-sm text-primary-600 hover:text-primary-700">
                   → Aktualności
                 </a>
-                <a href="/kontakt" class="block text-sm text-primary-600 hover:text-primary-700">
+                <a href={`${base}kontakt`} class="block text-sm text-primary-600 hover:text-primary-700">
                   → Kontakt
                 </a>
               </div>
