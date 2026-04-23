@@ -1,0 +1,338 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout 
+  title="Informacje dla Dłużników - Kancelaria Komornicza"
+  description="Informacje dotyczące dokonywania wpłat, obowiązki dłużnika, dane do przelewów"
+>
+  <!-- Hero -->
+  <div class="relative bg-primary-950 text-white overflow-hidden">
+    <div class="absolute inset-0 opacity-5">
+      <svg class="w-full h-full" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <pattern id="dluznik-pattern" x="0" y="0" width="60" height="60" patternUnits="userSpaceOnUse">
+            <path d="M30 5v50M30 5l-10 10M30 5l10 10M15 25l5-10 5 10M35 25l5-10 5 10M15 25h10M35 25h10" stroke="white" stroke-width="0.5" fill="none"/>
+          </pattern>
+        </defs>
+        <rect width="100%" height="100%" fill="url(#dluznik-pattern)"/>
+      </svg>
+    </div>
+    <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+      <div class="flex items-center space-x-2 text-accent-400 text-sm mb-4">
+        <a href="/" class="hover:text-accent-300">Strona główna</a>
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+        <span class="text-primary-300">Dłużnik</span>
+      </div>
+      <h1 class="text-4xl md:text-5xl font-bold mb-4">Informacje dla Dłużników</h1>
+      <p class="text-xl text-primary-300 max-w-3xl italic font-serif">
+        „Pacta sunt servanda"
+        <span class="block text-sm text-primary-400 mt-1 not-italic font-sans">– Umów należy dotrzymywać</span>
+      </p>
+    </div>
+  </div>
+
+  <div class="bg-gray-50 min-h-screen">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+      <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+        <!-- Main Content -->
+        <div class="lg:col-span-2 space-y-8">
+          <!-- Formy wpłat -->
+          <section class="bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden">
+            <div class="bg-primary-900 px-6 py-4">
+              <h2 class="text-xl font-bold text-white flex items-center">
+                <svg class="w-6 h-6 mr-3 text-accent-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                </svg>
+                Formy dokonywania wpłat
+              </h2>
+            </div>
+            <div class="p-6 prose prose-gray max-w-none">
+              <p class="text-gray-700 leading-relaxed">
+                Wszelkich wpłat w postępowaniach egzekucyjnych można dokonywać w następujących formach:
+              </p>
+
+              <div class="grid grid-cols-1 md:grid-cols-2 gap-4 my-6">
+                <div class="bg-primary-50 rounded-lg p-5 border border-primary-100">
+                  <div class="flex items-center mb-3">
+                    <div class="w-10 h-10 bg-primary-100 rounded-lg flex items-center justify-center mr-3">
+                      <svg class="w-5 h-5 text-primary-700" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M17 9V7a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2m2 4h10a2 2 0 002-2v-6a2 2 0 00-2-2H9a2 2 0 00-2 2v6a2 2 0 002 2zm7-5a2 2 0 11-4 0 2 2 0 014 0z"/>
+                      </svg>
+                    </div>
+                    <h4 class="font-semibold text-primary-900">Gotówkowo</h4>
+                  </div>
+                  <p class="text-sm text-primary-800">
+                    W toku czynności egzekucyjnych bądź w kasie kancelarii czynnej w godzinach urzędowania.
+                  </p>
+                </div>
+
+                <div class="bg-primary-50 rounded-lg p-5 border border-primary-100">
+                  <div class="flex items-center mb-3">
+                    <div class="w-10 h-10 bg-primary-100 rounded-lg flex items-center justify-center mr-3">
+                      <svg class="w-5 h-5 text-primary-700" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z"/>
+                      </svg>
+                    </div>
+                    <h4 class="font-semibold text-primary-900">Bezgotówkowo</h4>
+                  </div>
+                  <p class="text-sm text-primary-800">
+                    Przelewem na podany poniżej numer rachunku bankowego kancelarii.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- Numer rachunku bankowego -->
+          <section class="bg-gradient-to-br from-primary-900 to-primary-800 rounded-xl p-8 text-white shadow-lg">
+            <div class="flex items-center mb-6">
+              <div class="w-12 h-12 bg-accent-500/20 rounded-xl flex items-center justify-center mr-4">
+                <svg class="w-6 h-6 text-accent-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z"/>
+                </svg>
+              </div>
+              <h2 class="text-xl font-bold">Numer rachunku bankowego</h2>
+            </div>
+
+            <div class="bg-white/10 backdrop-blur rounded-lg p-6 mb-4 border border-white/20">
+              <p class="text-primary-200 text-sm mb-2">Kancelaria Komornicza Małgorzata Groszek - Kuszyk</p>
+              <p class="text-2xl md:text-3xl font-mono font-bold text-accent-300 tracking-wider">
+                PKO BP
+              </p>
+              <p class="text-primary-300 text-sm mt-2">
+                Numer rachunku bankowego do wpłat dostępny jest po kontakcie z kancelarią lub na zawiadomieniu o wszczęciu egzekucji.
+              </p>
+            </div>
+
+            <div class="bg-amber-500/20 border border-amber-400/30 rounded-lg p-4">
+              <div class="flex items-start">
+                <svg class="w-5 h-5 text-amber-400 mr-3 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M8.257 3.099c.765-1.36 2.722-1.36 3.486 0l5.58 9.92c.75 1.334-.213 2.98-1.742 2.98H4.42c-1.53 0-2.493-1.646-1.743-2.98l5.58-9.92zM11 13a1 1 0 11-2 0 1 1 0 012 0zm-1-8a1 1 0 00-1 1v3a1 1 0 002 0V6a1 1 0 00-1-1z" clip-rule="evenodd"/>
+                </svg>
+                <p class="text-amber-200 text-sm">
+                  <strong>Ważne:</strong> Przy dokonaniu wpłat należy podać <strong>sygnaturę akt postępowania 
+                  egzekucyjnego</strong> (KM, KMS lub KMP) oraz <strong>dane dłużnika</strong>.
+                </p>
+              </div>
+            </div>
+          </section>
+
+          <!-- Ochrona danych -->
+          <section class="bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden">
+            <div class="bg-primary-900 px-6 py-4">
+              <h2 class="text-xl font-bold text-white flex items-center">
+                <svg class="w-6 h-6 mr-3 text-accent-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/>
+                </svg>
+                Ochrona danych osobowych
+              </h2>
+            </div>
+            <div class="p-6 prose prose-gray max-w-none">
+              <p class="text-gray-700 leading-relaxed">
+                Z uwagi na ochronę danych osobowych informacje dotyczące postępowań egzekucyjnych 
+                udzielane telefonicznie oraz w drodze korespondencji e-mail są bardzo ogólnikowe.
+              </p>
+              <p class="text-gray-700 leading-relaxed">
+                Kontaktując się z Kancelarią należy podać <strong>sygnaturę akt komorniczych</strong> 
+                oraz <strong>dane dłużnika</strong>.
+              </p>
+              <div class="bg-red-50 border border-red-200 rounded-lg p-4 my-4">
+                <div class="flex items-start">
+                  <svg class="w-5 h-5 text-red-600 mr-3 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                    <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z" clip-rule="evenodd"/>
+                  </svg>
+                  <p class="text-red-800 text-sm">
+                    <strong>Ostrzeżenie:</strong> Komornik poucza, że podawanie się za inną osobę 
+                    i wprowadzanie w błąd organu egzekucyjnego stanowi przestępstwo ścigane z oskarżenia publicznego.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- Obowiązki dłużnika -->
+          <section class="bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden">
+            <div class="bg-primary-900 px-6 py-4">
+              <h2 class="text-xl font-bold text-white flex items-center">
+                <svg class="w-6 h-6 mr-3 text-accent-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"/>
+                </svg>
+                Obowiązki dłużnika
+              </h2>
+            </div>
+            <div class="p-6 space-y-6">
+              <!-- Obowiązek 1 -->
+              <div class="flex items-start">
+                <div class="w-10 h-10 bg-amber-100 rounded-xl flex items-center justify-center mr-4 flex-shrink-0">
+                  <svg class="w-5 h-5 text-amber-700" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
+                  </svg>
+                </div>
+                <div>
+                  <h4 class="font-semibold text-gray-900 mb-2">Zmiana miejsca zamieszkania</h4>
+                  <p class="text-gray-700 text-sm leading-relaxed">
+                    Dłużnik ma obowiązek poinformowania komornika o zmianie miejsca zamieszkania, 
+                    pobytu trwającego dłużej niż miesiąc, pod rygorem nałożenia grzywny na podstawie 
+                    art. 762 kpc, która może wynosić do <strong>2000 zł</strong>.
+                  </p>
+                  <p class="text-gray-600 text-sm mt-2 leading-relaxed">
+                    W przypadku zaniedbania tego obowiązku, pismo wysłane na dotychczasowy adres dłużnika 
+                    zarządzeniem komornika pozostawia się w aktach sprawy ze skutkiem doręczenia.
+                  </p>
+                </div>
+              </div>
+
+              <hr class="border-gray-100">
+
+              <!-- Obowiązek 2 -->
+              <div class="flex items-start">
+                <div class="w-10 h-10 bg-amber-100 rounded-xl flex items-center justify-center mr-4 flex-shrink-0">
+                  <svg class="w-5 h-5 text-amber-700" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                  </svg>
+                </div>
+                <div>
+                  <h4 class="font-semibold text-gray-900 mb-2">Złożenie wyjaśnień</h4>
+                  <p class="text-gray-700 text-sm leading-relaxed">
+                    Zgodnie z treścią art. 801 kpc, jeśli wierzyciel lub sąd zarządzający z urzędu 
+                    przeprowadzenie egzekucji albo uprawniony organ żądający przeprowadzenia egzekucji 
+                    nie może wskazać przedmiotów służących do zaspokojenia świadczenia, komornik 
+                    wezwie dłużnika do złożenia wyjaśnień.
+                  </p>
+                  <p class="text-gray-600 text-sm mt-2 leading-relaxed">
+                    Dłużnik ma obowiązek złożenia wyjaśnień w zakresie posiadanego majątku. 
+                    Wyjaśnienia w tym zakresie można złożyć <strong>osobiście w Kancelarii</strong> 
+                    lub <strong>pisemnie</strong>.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- Contact CTA -->
+          <div class="bg-gradient-to-r from-primary-800 to-primary-900 rounded-xl p-8 text-white">
+            <div class="flex items-start">
+              <svg class="w-8 h-8 text-accent-400 mr-4 mt-1 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+              </svg>
+              <div>
+                <h3 class="text-xl font-bold mb-2">Masz pytania?</h3>
+                <p class="text-primary-200 mb-4">
+                  W razie jakichkolwiek pytań dotyczących toczącego się postępowania egzekucyjnego 
+                  prosimy o kontakt z Kancelarią.
+                </p>
+                <a href="/kontakt" class="inline-flex items-center bg-accent-500 text-primary-950 px-5 py-2.5 rounded-lg font-semibold hover:bg-accent-400 transition text-sm">
+                  <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+                  Skontaktuj się z nami
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Sidebar -->
+        <div class="lg:col-span-1 space-y-6">
+          <!-- Quick Links -->
+          <div class="bg-white rounded-xl shadow-sm border border-gray-100 p-6">
+            <h3 class="text-lg font-bold text-gray-900 mb-4 flex items-center">
+              <svg class="w-5 h-5 mr-2 text-primary-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1"/>
+              </svg>
+              Zobacz także
+            </h3>
+            <div class="space-y-2">
+              <a href="/wierzyciel" class="flex items-center p-3 rounded-lg hover:bg-gray-50 transition group">
+                <div class="w-8 h-8 bg-gray-100 rounded-lg flex items-center justify-center mr-3 group-hover:bg-primary-100 transition">
+                  <svg class="w-4 h-4 text-gray-500 group-hover:text-primary-600 transition" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
+                </div>
+                <span class="text-sm text-gray-700 group-hover:text-primary-700 transition font-medium">Informacja dla Wierzycieli</span>
+              </a>
+              <a href="/licytacje" class="flex items-center p-3 rounded-lg hover:bg-gray-50 transition group">
+                <div class="w-8 h-8 bg-gray-100 rounded-lg flex items-center justify-center mr-3 group-hover:bg-primary-100 transition">
+                  <svg class="w-4 h-4 text-gray-500 group-hover:text-primary-600 transition" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5"/></svg>
+                </div>
+                <span class="text-sm text-gray-700 group-hover:text-primary-700 transition font-medium">Aktualne licytacje</span>
+              </a>
+              <a href="/formularze" class="flex items-center p-3 rounded-lg hover:bg-gray-50 transition group">
+                <div class="w-8 h-8 bg-gray-100 rounded-lg flex items-center justify-center mr-3 group-hover:bg-primary-100 transition">
+                  <svg class="w-4 h-4 text-gray-500 group-hover:text-primary-600 transition" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
+                </div>
+                <span class="text-sm text-gray-700 group-hover:text-primary-700 transition font-medium">Wzory wniosków</span>
+              </a>
+              <a href="/o-kancelarii" class="flex items-center p-3 rounded-lg hover:bg-gray-50 transition group">
+                <div class="w-8 h-8 bg-gray-100 rounded-lg flex items-center justify-center mr-3 group-hover:bg-primary-100 transition">
+                  <svg class="w-4 h-4 text-gray-500 group-hover:text-primary-600 transition" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/></svg>
+                </div>
+                <span class="text-sm text-gray-700 group-hover:text-primary-700 transition font-medium">O kancelarii</span>
+              </a>
+            </div>
+          </div>
+
+          <!-- Contact Info Sidebar -->
+          <div class="bg-primary-50 rounded-xl p-6 border border-primary-100">
+            <h3 class="text-lg font-bold text-primary-900 mb-4 flex items-center">
+              <svg class="w-5 h-5 mr-2 text-primary-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/>
+              </svg>
+              Kancelaria Komornicza
+            </h3>
+            <div class="space-y-3 text-sm text-primary-800">
+              <p class="font-semibold">Małgorzata Groszek - Kuszyk</p>
+              <p>Komornik Sądowy przy Sądzie Rejonowym dla Warszawy-Mokotowa</p>
+              <hr class="border-primary-200">
+              <div class="flex items-start">
+                <svg class="w-4 h-4 mr-2 mt-0.5 text-primary-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+                <div>
+                  <p>Al. Komisji Edukacji Narodowej 55/2</p>
+                  <p>02-797 Warszawa - Ursynów</p>
+                </div>
+              </div>
+              <div class="flex items-center">
+                <svg class="w-4 h-4 mr-2 text-primary-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
+                <p>22 851 68 96</p>
+              </div>
+              <div class="flex items-center">
+                <svg class="w-4 h-4 mr-2 text-primary-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+                <p>warszawa13@komornik.pl</p>
+              </div>
+              <div class="flex items-center">
+                <svg class="w-4 h-4 mr-2 text-primary-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                <p>Pn-Pt: 8:00 - 16:00</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Ważne informacje -->
+          <div class="bg-amber-50 rounded-xl p-6 border border-amber-200">
+            <h3 class="text-lg font-bold text-amber-900 mb-4 flex items-center">
+              <svg class="w-5 h-5 mr-2 text-amber-600" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd" d="M8.257 3.099c.765-1.36 2.722-1.36 3.486 0l5.58 9.92c.75 1.334-.213 2.98-1.742 2.98H4.42c-1.53 0-2.493-1.646-1.743-2.98l5.58-9.92zM11 13a1 1 0 11-2 0 1 1 0 012 0zm-1-8a1 1 0 00-1 1v3a1 1 0 002 0V6a1 1 0 00-1-1z" clip-rule="evenodd"/>
+              </svg>
+              Pamiętaj
+            </h3>
+            <ul class="space-y-3 text-sm text-amber-800">
+              <li class="flex items-start">
+                <svg class="w-4 h-4 text-amber-600 mr-2 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
+                Podawaj sygnaturę akt przy każdej wpłacie
+              </li>
+              <li class="flex items-start">
+                <svg class="w-4 h-4 text-amber-600 mr-2 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
+                Informuj o zmianie adresu zamieszkania
+              </li>
+              <li class="flex items-start">
+                <svg class="w-4 h-4 text-amber-600 mr-2 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
+                Stawiaj się na wezwania komornika
+              </li>
+              <li class="flex items-start">
+                <svg class="w-4 h-4 text-amber-600 mr-2 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
+                Składaj wyjaśnienia dotyczące majątku
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</BaseLayout>

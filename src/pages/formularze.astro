@@ -1,0 +1,135 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { getCollection } from 'astro:content';
+
+const formularze = (await getCollection('formularze'))
+  .sort((a, b) => a.data.category.localeCompare(b.data.category));
+
+const categories = [...new Set(formularze.map(f => f.data.category))];
+---
+
+<BaseLayout 
+  title="Formularz i wzory wniosków - Kancelaria Komornicza"
+  description="Pobierz wzory wniosków egzekucyjnych i niezbędne formularze"
+>
+  <div class="bg-gray-50 min-h-screen">
+    <div class="relative bg-primary-950 text-white overflow-hidden">
+      <div class="absolute inset-0 opacity-5">
+        <svg class="w-full h-full" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <pattern id="formularze-pattern" x="0" y="0" width="60" height="60" patternUnits="userSpaceOnUse">
+              <path d="M30 5v50M30 5l-10 10M30 5l10 10M15 25l5-10 5 10M35 25l5-10 5 10M15 25h10M35 25h10" stroke="white" stroke-width="0.5" fill="none"/>
+            </pattern>
+          </defs>
+          <rect width="100%" height="100%" fill="url(#formularze-pattern)"/>
+        </svg>
+      </div>
+      <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+        <div class="flex items-center space-x-2 text-accent-400 text-sm mb-4">
+          <a href="/" class="hover:text-accent-300">Strona główna</a>
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+          <span class="text-primary-300">Formularze</span>
+        </div>
+        <h1 class="text-4xl md:text-5xl font-bold mb-4">Formularze i wzory wniosków</h1>
+        <p class="text-xl text-primary-300">
+          Tutaj znajdziesz wzory dokumentów potrzebnych do wszczęcia postępowania egzekucyjnego
+        </p>
+      </div>
+    </div>
+
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+      <div class="bg-blue-50 border-l-4 border-blue-400 p-6 mb-8 rounded-r-lg">
+        <div class="flex items-start">
+          <svg class="w-6 h-6 text-blue-600 mt-1 mr-3 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+            <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd"/>
+          </svg>
+          <div>
+            <h3 class="font-semibold text-blue-800 mb-2">Informacja</h3>
+            <p class="text-blue-700 text-sm">
+              Wszystkie formularze są dostępne w formacie PDF do pobrania. 
+              Po wypełnieniu prosimy o dostarczenie ich do kancelarii osobiście, 
+              pocztą tradycyjną lub elektroniczną.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      {formularze.length === 0 ? (
+        <div class="bg-white rounded-lg shadow-sm p-12 text-center">
+          <svg class="w-16 h-16 text-gray-400 mx-auto mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
+          </svg>
+          <h3 class="text-xl font-semibold text-gray-900 mb-2">Brak dostępnych formularzy</h3>
+          <p class="text-gray-600">Formularze będą wkrótce dodane. Prosimy o kontakt z kancelarią.</p>
+        </div>
+      ) : (
+        categories.map((category) => {
+          const categoryForms = formularze.filter(f => f.data.category === category);
+          return (
+            <div class="mb-10">
+              <h2 class="text-2xl font-bold mb-6 text-gray-900 border-b-2 border-primary-600 pb-2">
+                {category}
+              </h2>
+              <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                {categoryForms.map((formularz) => (
+                  <div class="bg-white rounded-lg shadow-md hover:shadow-xl transition p-6">
+                    <div class="flex items-start mb-4">
+                      <div class="w-12 h-12 bg-red-100 rounded-lg flex items-center justify-center mr-4 flex-shrink-0">
+                        <svg class="w-6 h-6 text-red-600" fill="currentColor" viewBox="0 0 20 20">
+                          <path fill-rule="evenodd" d="M4 4a2 2 0 012-2h4.586A2 2 0 0112 2.586L15.414 6A2 2 0 0116 7.414V16a2 2 0 01-2 2H6a2 2 0 01-2-2V4z" clip-rule="evenodd"/>
+                        </svg>
+                      </div>
+                      <div class="flex-1">
+                        <h3 class="font-bold text-lg mb-2 text-gray-900 line-clamp-2">
+                          {formularz.data.title}
+                        </h3>
+                      </div>
+                    </div>
+                    
+                    <p class="text-gray-600 text-sm mb-4 line-clamp-3">
+                      {formularz.data.description}
+                    </p>
+                    
+                    <div class="flex items-center justify-between text-sm text-gray-500 mb-4">
+                      <span>Format: PDF</span>
+                      {formularz.data.fileSize && (
+                        <span>{formularz.data.fileSize}</span>
+                      )}
+                    </div>
+                    
+                    <a 
+                      href={formularz.data.fileUrl}
+                      download
+                      class="flex items-center justify-center w-full bg-primary-600 text-white py-2 px-4 rounded-lg font-semibold hover:bg-primary-700 transition"
+                    >
+                      <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
+                      </svg>
+                      Pobierz
+                    </a>
+                  </div>
+                ))}
+              </div>
+            </div>
+          );
+        })
+      )}
+
+      <div class="mt-12 bg-white rounded-lg shadow-sm p-8">
+        <h2 class="text-2xl font-bold mb-4 text-gray-900">Pomoc w wypełnieniu dokumentów</h2>
+        <p class="text-gray-700 mb-4">
+          Jeśli potrzebujesz pomocy w wypełnieniu formularzy lub masz pytania dotyczące 
+          postępowania egzekucyjnego, skontaktuj się z naszą kancelarią.
+        </p>
+        <div class="flex flex-col sm:flex-row gap-4">
+          <a href="/kontakt" class="inline-block bg-primary-600 text-white py-3 px-6 rounded-lg font-semibold hover:bg-primary-700 transition text-center">
+            Skontaktuj się z nami
+          </a>
+          <a href="/o-kancelarii" class="inline-block bg-gray-200 text-gray-700 py-3 px-6 rounded-lg font-semibold hover:bg-gray-300 transition text-center">
+            Więcej o kancelarii
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</BaseLayout>

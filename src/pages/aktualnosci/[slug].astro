@@ -1,0 +1,88 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { getCollection } from 'astro:content';
+import type { GetStaticPaths } from 'astro';
+
+export const getStaticPaths = (async () => {
+  const aktualnosci = await getCollection('aktualnosci');
+  return aktualnosci.map((news) => ({
+    params: { slug: news.slug },
+    props: { news },
+  }));
+}) satisfies GetStaticPaths;
+
+const { news } = Astro.props;
+const { Content } = await news.render();
+---
+
+<BaseLayout 
+  title={`${news.data.title} - Aktualności`}
+  description={news.data.description}
+>
+  <div class="bg-gray-50 min-h-screen">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+      <a href="/aktualnosci" class="inline-flex items-center text-primary-600 hover:text-primary-700 mb-6">
+        <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/>
+        </svg>
+        Powrót do aktualności
+      </a>
+
+      <article class="bg-white rounded-lg shadow-lg overflow-hidden">
+        {news.data.image && (
+          <div class="w-full h-96 overflow-hidden">
+            <img 
+              src={news.data.image} 
+              alt={news.data.title}
+              class="w-full h-full object-cover"
+            />
+          </div>
+        )}
+        
+        <div class="p-8">
+          <div class="flex items-center gap-4 mb-6 text-sm text-gray-600">
+            <span class="flex items-center">
+              <svg class="w-4 h-4 mr-1" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd" d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z" clip-rule="evenodd"/>
+              </svg>
+              {news.data.publishDate.toLocaleDateString('pl-PL', {
+                year: 'numeric',
+                month: 'long',
+                day: 'numeric'
+              })}
+            </span>
+            <span class="flex items-center">
+              <svg class="w-4 h-4 mr-1" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" clip-rule="evenodd"/>
+              </svg>
+              {news.data.author}
+            </span>
+          </div>
+
+          {news.data.tags && news.data.tags.length > 0 && (
+            <div class="flex flex-wrap gap-2 mb-6">
+              {news.data.tags.map((tag: string) => (
+                <span class="px-3 py-1 text-sm font-semibold text-primary-700 bg-primary-100 rounded-full">
+                  {tag}
+                </span>
+              ))}
+            </div>
+          )}
+
+          <h1 class="text-4xl font-bold mb-6 text-gray-900">{news.data.title}</h1>
+          
+          <div class="prose prose-lg max-w-none">
+            <p class="text-xl text-gray-600 leading-relaxed mb-8">{news.data.description}</p>
+            <Content />
+          </div>
+        </div>
+      </article>
+
+      <div class="mt-8 text-center">
+        <a href="/aktualnosci" class="inline-block bg-primary-600 text-white py-3 px-6 rounded-lg font-semibold hover:bg-primary-700 transition">
+          Zobacz wszystkie aktualności
+        </a>
+      </div>
+    </div>
+  </div>
+</BaseLayout>

@@ -1,0 +1,126 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout 
+  title="O kancelarii - Kancelaria Komornicza"
+  description="Informacje o Kancelarii Komorniczej Małgorzaty Groszek - Kuszyk w Warszawie na Ursynowie"
+>
+  <!-- Hero -->
+  <div class="relative bg-primary-950 text-white overflow-hidden">
+    <div class="absolute inset-0 opacity-5">
+      <svg class="w-full h-full" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <pattern id="okancelarii-pattern" x="0" y="0" width="60" height="60" patternUnits="userSpaceOnUse">
+            <path d="M30 5v50M30 5l-10 10M30 5l10 10M15 25l5-10 5 10M35 25l5-10 5 10M15 25h10M35 25h10" stroke="white" stroke-width="0.5" fill="none"/>
+          </pattern>
+        </defs>
+        <rect width="100%" height="100%" fill="url(#okancelarii-pattern)"/>
+      </svg>
+    </div>
+    <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+      <div class="flex items-center space-x-2 text-accent-400 text-sm mb-4">
+        <a href="/" class="hover:text-accent-300">Strona główna</a>
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+        <span class="text-primary-300">O kancelarii</span>
+      </div>
+      <h1 class="text-4xl md:text-5xl font-bold mb-4">O kancelarii</h1>
+      <p class="text-xl text-primary-300">Informacje o Kancelarii Komorniczej i zakresie działalności</p>
+    </div>
+  </div>
+
+  <div class="bg-white">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+      <div class="prose prose-lg max-w-none">
+        <section class="mb-12">
+          <h2 class="text-2xl font-semibold mb-4 text-gray-900">Komornik Sądowy</h2>
+          <p class="text-gray-700 leading-relaxed mb-4">
+            <strong>Małgorzata Groszek - Kuszyk</strong> - Komornik Sądowy przy Sądzie Rejonowym 
+            dla Warszawy-Mokotowa w Warszawie.
+          </p>
+          <p class="text-gray-700 leading-relaxed">
+            Kancelaria prowadzi profesjonalną obsługę postępowań egzekucyjnych, 
+            zapewniając sprawną realizację powierzonych spraw zgodnie z obowiązującymi 
+            przepisami prawa.
+          </p>
+        </section>
+
+        <section class="mb-12 bg-gray-50 p-6 rounded-lg">
+          <h2 class="text-2xl font-semibold mb-4 text-gray-900">Zasięg działania</h2>
+          <p class="text-gray-700 leading-relaxed mb-4">
+            Kancelaria prowadzi egzekucję na terenie:
+          </p>
+          <ul class="list-disc list-inside space-y-2 text-gray-700">
+            <li>Warszawa - Ursynów</li>
+            <li>Warszawa - Mokotów</li>
+            <li>Oraz innych rejonów zgodnie z właściwością miejscową</li>
+          </ul>
+        </section>
+
+        <section class="mb-12">
+          <h2 class="text-2xl font-semibold mb-4 text-gray-900">Zakres usług</h2>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div class="border-l-4 border-primary-600 pl-4">
+              <h3 class="font-semibold text-lg mb-2 text-gray-900">Egzekucja należności pieniężnych</h3>
+              <p class="text-gray-600 text-sm">
+                Prowadzenie postępowań egzekucyjnych mających na celu wyegzekwowanie 
+                należności pieniężnych od dłużników.
+              </p>
+            </div>
+            
+            <div class="border-l-4 border-primary-600 pl-4">
+              <h3 class="font-semibold text-lg mb-2 text-gray-900">Egzekucja świadczeń niepieniężnych</h3>
+              <p class="text-gray-600 text-sm">
+                Realizacja nakazów opróżnienia lokali, wydania rzeczy ruchomych 
+                oraz innych świadczeń niepieniężnych.
+              </p>
+            </div>
+            
+            <div class="border-l-4 border-primary-600 pl-4">
+              <h3 class="font-semibold text-lg mb-2 text-gray-900">Licytacje</h3>
+              <p class="text-gray-600 text-sm">
+                Organizacja i przeprowadzanie licytacji nieruchomości, 
+                pojazdów oraz innych ruchomości.
+              </p>
+            </div>
+            
+            <div class="border-l-4 border-primary-600 pl-4">
+              <h3 class="font-semibold text-lg mb-2 text-gray-900">Zabezpieczenia</h3>
+              <p class="text-gray-600 text-sm">
+                Dokonywanie zabezpieczeń majątkowych zgodnie z obowiązującymi przepisami.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <section class="mb-12 bg-primary-50 p-6 rounded-lg">
+          <h2 class="text-2xl font-semibold mb-4 text-gray-900">Zasady współpracy</h2>
+          <p class="text-gray-700 leading-relaxed mb-4">
+            Kancelaria działa na podstawie przepisów Kodeksu postępowania cywilnego 
+            oraz innych aktów prawnych regulujących postępowanie egzekucyjne.
+          </p>
+          <p class="text-gray-700 leading-relaxed">
+            Zapewniamy profesjonalną obsługę, terminowość oraz poszanowanie praw 
+            wszystkich stron postępowania egzekucyjnego.
+          </p>
+        </section>
+
+        <section class="mb-12">
+          <h2 class="text-2xl font-semibold mb-4 text-gray-900">Siedziba kancelarii</h2>
+          <div class="bg-gray-50 p-6 rounded-lg">
+            <p class="text-gray-700 font-semibold mb-2">Kancelaria Komornicza Małgorzata Groszek - Kuszyk</p>
+            <p class="text-gray-700">Al. Komisji Edukacji Narodowej 55/2</p>
+            <p class="text-gray-700 mb-4">02-797 Warszawa - Ursynów</p>
+            <p class="text-gray-600 text-sm">(stacja metra Imielin)</p>
+          </div>
+        </section>
+
+        <section class="border-t border-gray-200 pt-8">
+          <p class="text-sm text-gray-500 italic">
+            Niniejsza strona ma charakter wyłącznie informacyjny i nie może być traktowana jako reklama.
+          </p>
+        </section>
+      </div>
+    </div>
+  </div>
+</BaseLayout>

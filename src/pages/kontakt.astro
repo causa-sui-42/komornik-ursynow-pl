@@ -1,0 +1,142 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout 
+  title="Kontakt - Kancelaria Komornicza"
+  description="Skontaktuj się z Kancelarią Komorniczą Małgorzaty Groszek - Kuszyk w Warszawie"
+>
+  <!-- Hero -->
+  <div class="relative bg-primary-950 text-white overflow-hidden">
+    <div class="absolute inset-0 opacity-5">
+      <svg class="w-full h-full" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <pattern id="kontakt-pattern" x="0" y="0" width="60" height="60" patternUnits="userSpaceOnUse">
+            <path d="M30 5v50M30 5l-10 10M30 5l10 10M15 25l5-10 5 10M35 25l5-10 5 10M15 25h10M35 25h10" stroke="white" stroke-width="0.5" fill="none"/>
+          </pattern>
+        </defs>
+        <rect width="100%" height="100%" fill="url(#kontakt-pattern)"/>
+      </svg>
+    </div>
+    <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+      <div class="flex items-center space-x-2 text-accent-400 text-sm mb-4">
+        <a href="/" class="hover:text-accent-300">Strona główna</a>
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+        <span class="text-primary-300">Kontakt</span>
+      </div>
+      <h1 class="text-4xl md:text-5xl font-bold mb-4">Kontakt</h1>
+      <p class="text-xl text-primary-300">Skontaktuj się z Kancelarią Komorniczą</p>
+    </div>
+  </div>
+
+  <div class="bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+      
+      <div class="grid grid-cols-1 gap-12">
+        <!-- Contact Information -->
+        <div>
+          <div class="bg-gradient-to-br from-primary-600 to-primary-700 text-white p-8 rounded-lg shadow-lg mb-8">
+            <h2 class="text-2xl font-bold mb-6">Dane kontaktowe</h2>
+            
+            <div class="space-y-4">
+              <div class="flex items-start">
+                <svg class="w-6 h-6 mr-3 mt-1 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd"/>
+                </svg>
+                <div>
+                  <p class="font-semibold">Adres:</p>
+                  <p>Al. Komisji Edukacji Narodowej 55/2</p>
+                  <p>02-797 Warszawa - Ursynów</p>
+                  <p class="text-sm text-primary-100 mt-1">(stacja metra Imielin)</p>
+                </div>
+              </div>
+
+              <div class="flex items-start">
+                <svg class="w-6 h-6 mr-3 mt-1 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                  <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z"/>
+                </svg>
+                <div>
+                  <p class="font-semibold">Telefon:</p>
+                  <p>22 851 68 96</p>
+                </div>
+              </div>
+
+              <div class="flex items-start">
+                <svg class="w-6 h-6 mr-3 mt-1 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                  <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z"/>
+                  <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z"/>
+                </svg>
+                <div>
+                  <p class="font-semibold">Email:</p>
+                  <p>warszawa13@komornik.pl</p>
+                  <p>warszawa.groszek@komornik.pl</p>
+                </div>
+              </div>
+
+              <div class="flex items-start">
+                <svg class="w-6 h-6 mr-3 mt-1 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                  <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z"/>
+                </svg>
+                <div>
+                  <p class="font-semibold">Fax:</p>
+                  <p>22 851 15 50</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="bg-gray-50 p-6 rounded-lg">
+            <h3 class="text-xl font-semibold mb-4 text-gray-900">Godziny otwarcia</h3>
+            <div class="space-y-2 text-gray-700">
+              <div class="flex justify-between py-2 border-b border-gray-200">
+                <span class="font-medium">Poniedziałek:</span>
+                <span>8:00 - 16:00</span>
+              </div>
+              <div class="flex justify-between py-2 border-b border-gray-200">
+                <span class="font-medium">Wtorek:</span>
+                <span>8:00 - 16:00</span>
+              </div>
+              <div class="flex justify-between py-2 border-b border-gray-200">
+                <span class="font-medium">Środa:</span>
+                <span>8:00 - 16:00</span>
+              </div>
+              <div class="flex justify-between py-2 border-b border-gray-200">
+                <span class="font-medium">Czwartek:</span>
+                <span>8:00 - 16:00</span>
+              </div>
+              <div class="flex justify-between py-2 border-b border-gray-200">
+                <span class="font-medium">Piątek:</span>
+                <span>8:00 - 16:00</span>
+              </div>
+              <div class="flex justify-between py-2">
+                <span class="font-medium">Sobota - Niedziela:</span>
+                <span class="text-red-600">Nieczynne</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Map Section -->
+      <div class="mt-12">
+        <h2 class="text-2xl font-bold mb-6 text-gray-900">Lokalizacja</h2>
+        <div class="bg-gray-200 rounded-lg overflow-hidden" style="height: 400px;">
+          <iframe 
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2447.6785956745736!2d21.050291776883845!3d52.14739527197842!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47192f5a8b7c8737%3A0x7c6c8c8c8c8c8c8c!2sAleja%20Komisji%20Edukacji%20Narodowej%2055%2C%2002-797%20Warszawa!5e0!3m2!1spl!2spl!4v1234567890123"
+            width="100%" 
+            height="100%" 
+            style="border:0;" 
+            allowfullscreen="" 
+            loading="lazy" 
+            referrerpolicy="no-referrer-when-downgrade"
+            title="Mapa lokalizacji kancelarii"
+          ></iframe>
+        </div>
+        <p class="text-sm text-gray-600 mt-4">
+          📍 Dogodny dojazd metrem - stacja Imielin (linia M1)
+        </p>
+      </div>
+    </div>
+  </div>
+
+</BaseLayout>
