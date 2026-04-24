@@ -1,0 +1,75 @@
+backend:
+  name: github
+  repo: your-username/law-website # ZMIEŃ TO NA SWOJE REPO
+  branch: main
+  base_url: https://api.netlify.com # dla GitHub OAuth przez Netlify
+  
+# local_backend: true # Odkomentuj dla testów lokalnych
+
+media_folder: "public/images/uploads"
+public_folder: "/images/uploads"
+
+locale: "pl"
+
+collections:
+  - name: "licytacje"
+    label: "Licytacje"
+    folder: "src/content/licytacje"
+    create: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    fields:
+      - {label: "Tytuł", name: "title", widget: "string"}
+      - {label: "Opis", name: "description", widget: "text"}
+      - {label: "Data licytacji", name: "date", widget: "datetime"}
+      - {label: "Lokalizacja", name: "location", widget: "string"}
+      - {label: "Cena wywoławcza", name: "startPrice", widget: "string", required: false}
+      - {label: "Wartość szacunkowa", name: "estimatedValue", widget: "string", required: false}
+      - {label: "Zdjęcia", name: "images", widget: "list", required: false, field: {label: "Zdjęcie", name: "image", widget: "image"}}
+      - {label: "Kategoria", name: "category", widget: "select", options: ["nieruchomosci", "ruchomosci", "pojazdy", "inne"]}
+      - {label: "Status", name: "status", widget: "select", options: ["aktywna", "zakonczona", "anulowana"], default: "aktywna"}
+      - {label: "Data publikacji", name: "publishDate", widget: "datetime"}
+      - {label: "Szczegóły", name: "body", widget: "markdown", required: false}
+
+  - name: "aktualnosci"
+    label: "Aktualności"
+    folder: "src/content/aktualnosci"
+    create: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    fields:
+      - {label: "Tytuł", name: "title", widget: "string"}
+      - {label: "Opis", name: "description", widget: "text"}
+      - {label: "Data publikacji", name: "publishDate", widget: "datetime"}
+      - {label: "Autor", name: "author", widget: "string", default: "Kancelaria Komornicza"}
+      - {label: "Zdjęcie główne", name: "image", widget: "image", required: false}
+      - {label: "Tagi", name: "tags", widget: "list", required: false}
+      - {label: "Wyróżnione", name: "featured", widget: "boolean", default: false}
+      - {label: "Treść", name: "body", widget: "markdown"}
+
+  - name: "formularze"
+    label: "Formularze"
+    folder: "src/content/formularze"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - {label: "Tytuł", name: "title", widget: "string"}
+      - {label: "Opis", name: "description", widget: "text"}
+      - {label: "Kategoria", name: "category", widget: "string"}
+      - {label: "Plik PDF", name: "fileUrl", widget: "file"}
+      - {label: "Rozmiar pliku", name: "fileSize", widget: "string", required: false, hint: "np. 250 KB"}
+      - {label: "Data publikacji", name: "publishDate", widget: "datetime"}
+      - {label: "Dodatkowe informacje", name: "body", widget: "markdown", required: false}
+
+  - name: "wydarzenia"
+    label: "Wydarzenia / Kalendarz"
+    folder: "src/content/wydarzenia"
+    create: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    fields:
+      - {label: "Tytuł", name: "title", widget: "string"}
+      - {label: "Opis", name: "description", widget: "text", required: false}
+      - {label: "Data rozpoczęcia", name: "startDate", widget: "datetime"}
+      - {label: "Data zakończenia", name: "endDate", widget: "datetime", required: false}
+      - {label: "Lokalizacja", name: "location", widget: "string", required: false}
+      - {label: "Kategoria", name: "category", widget: "select", options: ["licytacja", "termin", "wakacje", "wazne"]}
+      - {label: "Wydarzenie całodniowe", name: "allDay", widget: "boolean", default: false}
+      - {label: "Szczegóły", name: "body", widget: "markdown", required: false}
