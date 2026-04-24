@@ -1,18 +1,19 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-const base = import.meta.env.BASE_URL;
 import { getCollection } from 'astro:content';
+const base = import.meta.env.BASE_URL;
 
 const allLicytacje = await getCollection('licytacje');
 const aktywneLicytacje = allLicytacje
   .filter(l => l.data.status === 'aktywna')
   .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
+const pageTitle = "Aktualne licytacje - Kancelaria Komornicza";
+const pageDescription = "Aktualne licytacje nieruchomości, pojazdów i ruchomości prowadzone przez Kancelarię Komorniczą";
+const lbl_cena = "Cena wywo\u0142awcza:";
+const lbl_zobacz = "Zobacz szczeg\u00f3\u0142y";
 ---
 
-<BaseLayout 
-  title="Aktualne licytacje - Kancelaria Komornicza"
-  description="Aktualne licytacje nieruchomości, pojazdów i ruchomości prowadzone przez Kancelarię Komorniczą"
->
+<BaseLayout title={pageTitle} description={pageDescription}>
   <div class="bg-gray-50 min-h-screen">
     <div class="relative bg-primary-950 text-white overflow-hidden">
       <div class="absolute inset-0 opacity-5">
@@ -128,10 +129,10 @@ const aktywneLicytacje = allLicytacje
                 </div>
                 
                 <a 
-                  href={`/licytacje/${licytacja.slug}`}
+                  href={base + "licytacje/" + licytacja.slug}
                   class="inline-block w-full text-center bg-primary-600 text-white py-2 px-4 rounded-lg font-semibold hover:bg-primary-700 transition"
                 >
-                  Zobacz szczegóły
+                  {lbl_zobacz}
                 </a>
               </div>
             </div>
@@ -141,12 +142,12 @@ const aktywneLicytacje = allLicytacje
     </div>
   </div>
 
-  <script>
-    const categoryFilter = document.getElementById('category-filter') as HTMLSelectElement;
-    const sortFilter = document.getElementById('sort-filter') as HTMLSelectElement;
-    const searchInput = document.getElementById('search-input') as HTMLInputElement;
+  <script is:inline>
+    const categoryFilter = document.getElementById('category-filter');
+    const sortFilter = document.getElementById('sort-filter');
+    const searchInput = document.getElementById('search-input');
     const auctionsGrid = document.getElementById('auctions-grid');
-    const cards = Array.from(document.querySelectorAll('.auction-card')) as HTMLElement[];
+    const cards = Array.from(document.querySelectorAll('.auction-card'));
 
     function filterAndSort() {
       const category = categoryFilter.value;

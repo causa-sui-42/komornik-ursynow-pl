@@ -1,18 +1,21 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-const base = import.meta.env.BASE_URL;
 import { getCollection } from 'astro:content';
+const base = import.meta.env.BASE_URL;
 
 const formularze = (await getCollection('formularze'))
   .sort((a, b) => a.data.category.localeCompare(b.data.category));
 
 const categories = [...new Set(formularze.map(f => f.data.category))];
+const pageTitle = "Formularz i wzory wniosk\u00f3w - Kancelaria Komornicza";
+const pageDescription = "Pobierz wzory wniosk\u00f3w egzekucyjnych i niezb\u0119dne formularze";
+const lbl_info = "Informacja";
+const lbl_pomoc = "Pomoc w wype\u0142nieniu dokument\u00f3w";
+const lbl_kontakt = "Skontaktuj si\u0119 z nami";
+const lbl_kancelaria = "Wi\u0119cej o kancelarii";
 ---
 
-<BaseLayout 
-  title="Formularz i wzory wniosków - Kancelaria Komornicza"
-  description="Pobierz wzory wniosków egzekucyjnych i niezbędne formularze"
->
+<BaseLayout title={pageTitle} description={pageDescription}>
   <div class="bg-gray-50 min-h-screen">
     <div class="relative bg-primary-950 text-white overflow-hidden">
       <div class="absolute inset-0 opacity-5">
@@ -47,9 +50,7 @@ const categories = [...new Set(formularze.map(f => f.data.category))];
           <div>
             <h3 class="font-semibold text-blue-800 mb-2">Informacja</h3>
             <p class="text-blue-700 text-sm">
-              Wszystkie formularze są dostępne w formacie PDF do pobrania. 
-              Po wypełnieniu prosimy o dostarczenie ich do kancelarii osobiście, 
-              pocztą tradycyjną lub elektroniczną.
+              Wszystkie formularze są dostępne w formacie PDF do pobrania. Po wypełnieniu prosimy o dostarczenie ich do kancelarii osobiście, pocztą tradycyjną lub elektroniczną.
             </p>
           </div>
         </div>
@@ -119,15 +120,14 @@ const categories = [...new Set(formularze.map(f => f.data.category))];
       <div class="mt-12 bg-white rounded-lg shadow-sm p-8">
         <h2 class="text-2xl font-bold mb-4 text-gray-900">Pomoc w wypełnieniu dokumentów</h2>
         <p class="text-gray-700 mb-4">
-          Jeśli potrzebujesz pomocy w wypełnieniu formularzy lub masz pytania dotyczące 
-          postępowania egzekucyjnego, skontaktuj się z naszą kancelarią.
+          Jeśli potrzebujesz pomocy w wypełnieniu formularzy lub masz pytania dotyczące postępowania egzekucyjnego, skontaktuj się z naszą kancelarią.
         </p>
         <div class="flex flex-col sm:flex-row gap-4">
-          <a href={`${base}kontakt`} class="inline-block bg-primary-600 text-white py-3 px-6 rounded-lg font-semibold hover:bg-primary-700 transition text-center">
-            Skontaktuj się z nami
+          <a href={base + "kontakt"} class="inline-block bg-primary-600 text-white py-3 px-6 rounded-lg font-semibold hover:bg-primary-700 transition text-center">
+            {lbl_kontakt}
           </a>
-          <a href={`${base}o-kancelarii`} class="inline-block bg-gray-200 text-gray-700 py-3 px-6 rounded-lg font-semibold hover:bg-gray-300 transition text-center">
-            Więcej o kancelarii
+          <a href={base + "o-kancelarii"} class="inline-block bg-gray-200 text-gray-700 py-3 px-6 rounded-lg font-semibold hover:bg-gray-300 transition text-center">
+            {lbl_kancelaria}
           </a>
         </div>
       </div>

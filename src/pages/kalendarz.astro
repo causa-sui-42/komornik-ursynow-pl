@@ -1,7 +1,7 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-const base = import.meta.env.BASE_URL;
 import { getCollection } from 'astro:content';
+const base = import.meta.env.BASE_URL;
 
 const wydarzenia = await getCollection('wydarzenia');
 
@@ -20,13 +20,21 @@ const calendarEvents = wydarzenia.map(event => ({
     event.data.category === 'wakacje' ? '#ef4444' :
     '#10b981',
 }));
-const calendarEventsJson = JSON.stringify(calendarEvents);
+const calendarEventsJson = JSON.stringify(calendarEvents).replace(/[\u007F-\uFFFF]/g, function(c) { return '\\u' + c.charCodeAt(0).toString(16).padStart(4, '0'); });
+const pageTitle = "Kalendarz termin\u00f3w - Kancelaria Komornicza";
+const pageDescription = "Kalendarz wa\u017cnych termin\u00f3w, licytacji i wydarze\u0144 w kancelarii komorniczej";
+const lbl_strGl = "Strona g\u0142\u00f3wna";
+const lbl_kalTerm = "Kalendarz termin\u00f3w";
+const lbl_wazneTerminy = "Wa\u017cne terminy, licytacje i wydarzenia w kancelarii";
+const lbl_termSad = "Terminy s\u0105dowe";
+const lbl_dniWolne = "Dni wolne";
+const lbl_wazne = "Wa\u017cne";
+const lbl_arrLic = "\u2192 Wszystkie licytacje";
+const lbl_arrAkt = "\u2192 Aktualno\u015bci";
+const lbl_arrKon = "\u2192 Kontakt";
 ---
 
-<BaseLayout 
-  title="Kalendarz terminów - Kancelaria Komornicza"
-  description="Kalendarz ważnych terminów, licytacji i wydarzeń w kancelarii komorniczej"
->
+<BaseLayout title={pageTitle} description={pageDescription}>
   <div class="bg-gray-50 min-h-screen">
     <div class="relative bg-primary-950 text-white overflow-hidden">
       <div class="absolute inset-0 opacity-5">
@@ -41,13 +49,13 @@ const calendarEventsJson = JSON.stringify(calendarEvents);
       </div>
       <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
         <div class="flex items-center space-x-2 text-accent-400 text-sm mb-4">
-          <a href={base} class="hover:text-accent-300">Strona główna</a>
+          <a href={base} class="hover:text-accent-300">{lbl_strGl}</a>
           <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
           <span class="text-primary-300">Kalendarz</span>
         </div>
-        <h1 class="text-4xl md:text-5xl font-bold mb-4">Kalendarz terminów</h1>
+        <h1 class="text-4xl md:text-5xl font-bold mb-4">{lbl_kalTerm}</h1>
         <p class="text-xl text-primary-300">
-          Ważne terminy, licytacje i wydarzenia w kancelarii
+          {lbl_wazneTerminy}
         </p>
       </div>
     </div>
@@ -65,29 +73,29 @@ const calendarEventsJson = JSON.stringify(calendarEvents);
               </div>
               <div class="flex items-center">
                 <div class="w-4 h-4 rounded bg-purple-500 mr-3"></div>
-                <span class="text-sm text-gray-700">Terminy sądowe</span>
+                <span class="text-sm text-gray-700">{lbl_termSad}</span>
               </div>
               <div class="flex items-center">
                 <div class="w-4 h-4 rounded bg-red-500 mr-3"></div>
-                <span class="text-sm text-gray-700">Dni wolne</span>
+                <span class="text-sm text-gray-700">{lbl_dniWolne}</span>
               </div>
               <div class="flex items-center">
                 <div class="w-4 h-4 rounded bg-green-500 mr-3"></div>
-                <span class="text-sm text-gray-700">Ważne</span>
+                <span class="text-sm text-gray-700">{lbl_wazne}</span>
               </div>
             </div>
 
             <div class="mt-6 pt-6 border-t border-gray-200">
               <h3 class="font-semibold mb-3 text-gray-900">Szybkie linki</h3>
               <div class="space-y-2">
-                <a href={`${base}licytacje`} class="block text-sm text-primary-600 hover:text-primary-700">
-                  → Wszystkie licytacje
+                <a href={base + "licytacje"} class="block text-sm text-primary-600 hover:text-primary-700">
+                  {lbl_arrLic}
                 </a>
-                <a href={`${base}aktualnosci`} class="block text-sm text-primary-600 hover:text-primary-700">
-                  → Aktualności
+                <a href={base + "aktualnosci"} class="block text-sm text-primary-600 hover:text-primary-700">
+                  {lbl_arrAkt}
                 </a>
-                <a href={`${base}kontakt`} class="block text-sm text-primary-600 hover:text-primary-700">
-                  → Kontakt
+                <a href={base + "kontakt"} class="block text-sm text-primary-600 hover:text-primary-700">
+                  {lbl_arrKon}
                 </a>
               </div>
             </div>
